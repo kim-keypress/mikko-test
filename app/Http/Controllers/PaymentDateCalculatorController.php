@@ -17,7 +17,7 @@ class PaymentDateCalculatorController extends Controller
         $year = $request->get('year') ?? date('Y');
 
         return view('calculator', [
-            'year' => $year,
+            'selectedYear' => $year,
             'paymentDatesArray' => $calculator->getPaymentDatesForYear($year)
         ]);
     }

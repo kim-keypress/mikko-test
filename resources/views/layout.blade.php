@@ -11,5 +11,7 @@
     <div class="container p-4">
         @yield('content')
     </div>
+
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

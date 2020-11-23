@@ -1,7 +1,14 @@
 @extends('layout')
 
 @section('content')
-    <h1>Payment dates for the year {{ $year }}</h1>
+    <h1>Payment dates for the year {{ $selectedYear }}</h1>
+    <form id="year-selector-form" method="GET">
+        <select id="year-selector" class="custom-select" name="year">
+            @foreach(range(2000, 2100) as $year)
+                <option value="{{$year}}" @if($year == $selectedYear) selected @endif>{{$year}}</option>
+            @endforeach
+        </select>
+    </form>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -22,7 +29,7 @@
     </table>
     <form method="POST" action="{{ route('calculator.download') }}">
         @csrf
-        <input type="hidden" name="year" value="{{ $year }}">
+        <input type="hidden" name="year" value="{{ $selectedYear }}">
         <button class="btn btn-primary">Download CSV</button>
     </form>
 @endsection
