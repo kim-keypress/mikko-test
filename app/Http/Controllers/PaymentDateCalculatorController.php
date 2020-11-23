@@ -11,7 +11,7 @@ class PaymentDateCalculatorController extends Controller
     public function index(Request $request, IPaymentDateCalculator $calculator)
     {
         $request->validate([
-            'year' => 'required|integer'
+            'year' => 'integer'
         ]);
 
         $year = $request->get('year') ?? date('Y');
