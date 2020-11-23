@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [PaymentDateCalculatorController::class, 'index']);
+Route::post('/download', [PaymentDateCalculatorController::class, 'download'])->name('calculator.download');

@@ -20,4 +20,9 @@
             @endforeach
         </tbody>
     </table>
+    <form method="POST" action="{{ route('calculator.download') }}">
+        @csrf
+        <input type="hidden" name="year" value="{{ $year }}">
+        <button class="btn btn-primary">Download CSV</button>
+    </form>
 @endsection
